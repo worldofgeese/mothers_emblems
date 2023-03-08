@@ -1,0 +1,55 @@
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "debugpy>=1.6.6",
+    "isort>=5.12.0",
+    "black>=23.1.0",
+]
+
+[project]
+name = "mothers_emblems"
+version = "0.1.0"
+description = "Generative art memberships to a world of mother's love."
+authors = [
+    {name = "Tao Hansen", email = "59834693+worldofgeese@users.noreply.github.com"},
+]
+dependencies = [
+    "py5>=0.8.3a1",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = [
+    "generative",
+    "art",
+    "nft",
+    "processing",
+    "py5",
+]
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Artistic Software",
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.hansen.agency/worldofgeese/mothers_emblems"
+"Bug Tracker" = "https://gitlab.hansen.agency/worldofgeese/mothers_emblems/-/issues"
+
+# Add src to search paths for successful test linting
+[tool.pyright]
+extraPaths = ["__pypackages__/3.11/lib/", "src"]
+python.analysis.extraPaths = ["__pypackages__/3.11/lib/"]
+
+[build-system]
+requires = ["pdm-pep517>=1.0"]
+build-backend = "pdm.pep517.api"
+
+# "The path entries are calculated relative to the rootdir, thus the src entry adds path/to/project/src directory to sys.path in this case."
+# https://stackoverflow.com/a/50156706
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
